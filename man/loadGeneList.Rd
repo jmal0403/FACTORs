@@ -4,7 +4,7 @@
 \alias{loadGeneList}
 \title{loadGeneList function}
 \usage{
-loadGeneList(file.IN = test.file.01)
+loadGeneList(file.IN)
 }
 \arguments{
 \item{file.IN}{tab delimited file with three columns -  1) gene identifiers, 2) t-statistic of functional association 1, and 3) t-statistic for gene functional association 2.}

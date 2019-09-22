@@ -9,4 +9,3 @@
 crossCorr<-function(df=SECRET.df, plot=to.plot){
 ccf(df$M1_SECRET, df$MG_CTRL_01, plot=plot, ci = 0.95)
 }
-
