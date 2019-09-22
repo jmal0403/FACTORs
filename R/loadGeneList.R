@@ -6,7 +6,7 @@
 #' @export 
 #' @examples
 #' loadGeneList()
-loadGeneList <- function(file.IN=test.file.01){
+loadGeneList <- function(file.IN){
 read.csv(file.IN, header = TRUE, sep="\t")
 }
 
