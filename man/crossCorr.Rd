@@ -4,7 +4,7 @@
 \alias{crossCorr}
 \title{crossCorr function}
 \usage{
-crossCorr(df = SECRET.df, plot = to.plot)
+crossCorr(SECRET, plot = FALSE)
 }
 \arguments{
 \item{SECRET}{data.frame}
@@ -13,7 +13,7 @@ crossCorr(df = SECRET.df, plot = to.plot)
 cross correlation object (deconvolveR)
 }
 \description{
-Calculate cross correlation for two SECRETs.
+Calculate cross correlation for a SECRET.
 }
 \examples{
 crossCorr()

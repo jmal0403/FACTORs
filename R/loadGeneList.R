@@ -7,6 +7,8 @@
 #' @examples
 #' loadGeneList()
 loadGeneList <- function(file.IN){
-read.csv(file.IN, header = TRUE, sep="\t")
+df<-read.csv(file.IN, header = TRUE, sep="\t")
+rownames(df)<-df$SYMBOL
+df[,1]<-NULL
+df
 }
-

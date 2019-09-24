@@ -3,6 +3,7 @@
 export(calcCCF_Pvalue)
 export(calcSignificanceLevel)
 export(crossCorr)
+export(generateSECRET)
 export(isCCF_Significant)
 export(loadGeneList)
 export(plotCorrFunc)

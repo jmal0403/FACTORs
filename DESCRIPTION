@@ -1,14 +1,14 @@
 Package: SECRETs
-Title: What the Package Does (One Line, Title Case)
+Title: SinglE Cell deRived EigenTraits
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "JS",
+           family = "Malamon",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "jmal0403@gmail.com")
+Description: SECRETs is a framework for functional hypothesis testing for ranked gene sets or single-cell mRNA data. 
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.99.9001
+Type: Package
