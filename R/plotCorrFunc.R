@@ -1,8 +1,8 @@
 #' plotCorrFunc function
 #'
 #' 
-#' @param crossCorr() data.frame
-#' @return bool
+#' @param plotCorrFunc() ccf object
+#' @return ggplot2 object
 #' @export 
 #' @examples
 #' plotCorrFunc()
