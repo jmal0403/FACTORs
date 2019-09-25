@@ -7,10 +7,10 @@
 plotCorrFunc(ccf)
 }
 \arguments{
-\item{crossCorr()}{data.frame}
+\item{plotCorrFunc()}{ccf object}
 }
 \value{
-bool
+ggplot2 object
 }
 \description{
 plotCorrFunc function
