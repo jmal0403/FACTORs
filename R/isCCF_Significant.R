@@ -6,7 +6,12 @@
 #' @export 
 #' @examples
 #' isCCF_Significant()
-isCCF_Significant<-function(df=ccf.df){
-apply(ccf.df.01$acf, MARGIN = c(1,2), function(x) x >= ccf.df.01$acf[[1]])
+isCCF_Significant<-function(ccf.df, x=sig){
+if (apply(sig.df, 2, function(x) any(is.na(x)))){
+   FALSE
 }
+else {
+apply(ccf.df$acf, MARGIN = c(1,2), function(x) x >= ccf.df$acf[[1]])
+}}
+
 

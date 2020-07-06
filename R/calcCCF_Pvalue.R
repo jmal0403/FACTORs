@@ -6,7 +6,10 @@
 #' @export 
 #' @examples
 #' calcCCF_Pvalue()
-calcCCF_Pvalue=function(df=ccf.df) {
-2 * (1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd = 1/sqrt(df$n.used)))
+calcCCF_Pvalue<-function(df) {
+if (sum(df$acf)==0){
+    1/sqrt(length(df))
 }
-
+else {
+2 * (1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =     1/sqrt(length(df))))
+}}
