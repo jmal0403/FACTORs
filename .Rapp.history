@@ -1,0 +1,395 @@
+is.na(SECRET.df$df.2)
+SECRET.df[is.na(SECRET.df$df.2),2]<-0
+SECRET.df[is.na(SECRET.df$df.2),]<-0
+SECRET.df[is.na(SECRET.df$df.2),]
+SECRET.df[is.na(SECRET.df$df.1),]
+SECRET.df[is.na(SECRET.df$df.2),]
+SECRET.df[is.na(SECRET.df$df.2),1:2]
+SECRET.df$df.2[is.na(SECRET.df$df.2),1:2]
+SECRET.df$df.2[is.na(SECRET.df$df.2),]
+SECRET.df[is.na(SECRET.df$df.2),]
+SECRET.df[is.na(SECRET.df$df.2),2]
+SECRET.df[is.na(SECRET.df$df.2),2]<-0
+MG.CTRL.01
+MONO.CTRL.01
+df.1=MG.CTRL.01#
+df.2=MG.CTRL.02#
+isec.genes=intersect(rownames(df.1), rownames(df.2))
+isec.genes
+set.1.excl<- setdiff(rownames(df.2), rownames(df.1))
+set.1.excl
+set.2.excl<- setdiff(rownames(df.1), rownames(df.2))
+set.2.e
+set.2.excl
+x=length(isec.genes)#
+n=nrow(df.2)#
+M=nrow(df.1)#
+N=20000
+n
+M
+df<-data.frame(df.1=df.1[isec.genes,])
+df
+rownames(df)<-isec.genes
+df<-cbind(df, df.2=df.2[isec.genes,])
+df
+df.tmp.1<-data.frame(SYMBOL=set.1.excl, df.1=rep(0,n-x), df.2=rep(0,n-x))
+df.tmp.1
+df.tmp.2<-data.frame(SYMBOL=set.2.excl, df.1=rep(0,M-x), df.2=rep(0,M-x))
+df.tmp.2
+rownames(df.tmp.1)<-df.tmp.1$SYMBOL
+rownames(df.tmp.2)<- df.tmp.2$SYMBOL
+head(df.tmp.1)
+df.tmp.1[,1]<-NULL
+head(df.tmp.1)
+df.tmp.2[,1]<-NULL
+head(df.tmp.2)
+SECRET.df<-rbind(df, df.tmp.1,df.tmp.2)
+df
+head(df.tmp.1)
+loadGeneList <- function(file.IN){#
+df<-read.csv(file.IN, header = TRUE, sep="\t", stringsAsFactors = FALSE)#
+rownames(df)<-df$SYMBOL#
+df[,1]<-NULL#
+df#
+}
+## MG CTRL 1#
+MG.CTRL.01.file <- "/Users/johnmalamon/Documents/NGS/SECRETs/MG_CTRL_01.txt"#
+MG.CTRL.01<-loadGeneList(MG.CTRL.01.file)#
+## MG CTRL 2#
+MG.CTRL.02.file <- "/Users/johnmalamon/Documents/NGS/SECRETs/MG_CTRL_02.txt"#
+MG.CTRL.02<-loadGeneList(MG.CTRL.02.file)
+df.1=MG.CTRL.01#
+df.2=MG.CTRL.02#
+isec.genes=intersect(rownames(df.1), rownames(df.2))#
+set.1.excl<- setdiff(rownames(df.2), rownames(df.1))#
+set.2.excl<- setdiff(rownames(df.1), rownames(df.2))#
+x=length(isec.genes)#
+n=nrow(df.2)#
+M=nrow(df.1)#
+N=20000#
+df<-data.frame(df.1=df.1[isec.genes,])#
+rownames(df)<-isec.genes#
+df<-cbind(df, df.2=df.2[isec.genes,])#
+df.tmp.1<-data.frame(SYMBOL=set.1.excl, df.1=rep(0,n-x), df.2=rep(0,n-x))#
+df.tmp.2<-data.frame(SYMBOL=set.2.excl, df.1=rep(0,M-x), df.2=rep(0,M-x))#
+df.tmp.2[is.na(df.tmp.2)] <- 0#
+rownames(df.tmp.1)<-df.tmp.1$SYMBOL#
+df.tmp.1[,1]<-NULL#
+rownames(df.tmp.2)<- df.tmp.2$SYMBOL#
+df.tmp.2[,1]<-NULL#
+SECRET.df<-rbind(df, df.tmp.1,df.tmp.2)
+SECRET.df
+MG.CTRL.02.file <- "/Users/johnmalamon/Documents/NGS/SECRETs/MG_CTRL_02.txt"#
+MG.CTRL.02<-loadGeneList(MG.CTRL.02.file)
+df.1=MG.CTRL.01#
+df.2=MG.CTRL.02#
+isec.genes=intersect(rownames(df.1), rownames(df.2))#
+set.1.excl<- setdiff(rownames(df.2), rownames(df.1))#
+set.2.excl<- setdiff(rownames(df.1), rownames(df.2))#
+x=length(isec.genes)#
+n=nrow(df.2)#
+M=nrow(df.1)#
+N=20000#
+df<-data.frame(df.1=df.1[isec.genes,])#
+rownames(df)<-isec.genes#
+df<-cbind(df, df.2=df.2[isec.genes,])#
+df.tmp.1<-data.frame(SYMBOL=set.1.excl, df.1=rep(0,n-x), df.2=rep(0,n-x))#
+df.tmp.2<-data.frame(SYMBOL=set.2.excl, df.1=rep(0,M-x), df.2=rep(0,M-x))#
+df.tmp.2[is.na(df.tmp.2)] <- 0#
+rownames(df.tmp.1)<-df.tmp.1$SYMBOL#
+df.tmp.1[,1]<-NULL#
+rownames(df.tmp.2)<- df.tmp.2$SYMBOL#
+df.tmp.2[,1]<-NULL#
+SECRET.df<-rbind(df, df.tmp.1,df.tmp.2)
+dim(df.tmp.2)
+dim(df.tmp.1)
+dim(df)
+head(df)
+df=NULL
+df<-data.frame(df.1=df.1[isec.genes,])#
+rownames(df)<-isec.genes#
+df<-cbind(df, df.2=df.2[isec.genes,])#
+df.tmp.1<-data.frame(SYMBOL=set.1.excl, df.1=rep(0,n-x), df.2=rep(0,n-x))#
+df.tmp.2<-data.frame(SYMBOL=set.2.excl, df.1=rep(0,M-x), df.2=rep(0,M-x))#
+df.tmp.2[is.na(df.tmp.2)] <- 0
+df
+MG.CTRL.01
+MG.CTRL.02
+MG.CTRL.02.file <- "/Users/johnmalamon/Documents/NGS/SECRETs/MG_CTRL_02.txt"#
+MG.CTRL.02<-loadGeneList(MG.CTRL.02.file)
+MG.CTRL.02
+df.1=MG.CTRL.01#
+df.2=MG.CTRL.02#
+isec.genes=intersect(rownames(df.1), rownames(df.2))#
+set.1.excl<- setdiff(rownames(df.2), rownames(df.1))#
+set.2.excl<- setdiff(rownames(df.1), rownames(df.2))#
+x=length(isec.genes)#
+n=nrow(df.2)#
+M=nrow(df.1)#
+N=20000#
+df<-data.frame(df.1=df.1[isec.genes,])#
+rownames(df)<-isec.genes#
+df<-cbind(df, df.2=df.2[isec.genes,])#
+df.tmp.1<-data.frame(SYMBOL=set.1.excl, df.1=rep(0,n-x), df.2=rep(0,n-x))#
+df.tmp.2<-data.frame(SYMBOL=set.2.excl, df.1=rep(0,M-x), df.2=rep(0,M-x))
+rownames(df.tmp.1)<-df.tmp.1$SYMBOL#
+df.tmp.1[,1]<-NULL#
+rownames(df.tmp.2)<- df.tmp.2$SYMBOL#
+df.tmp.2[,1]<-NULL#
+SECRET.df<-rbind(df, df.tmp.1,df.tmp.2)
+SECRET.df
+generateSECRET<-function(df.1, df.2){#
+isec.genes=intersect(rownames(df.1), rownames(df.2))#
+set.1.excl<- setdiff(rownames(df.2), rownames(df.1))#
+set.2.excl<- setdiff(rownames(df.1), rownames(df.2))#
+x=length(isec.genes)#
+n=nrow(df.2)#
+M=nrow(df.1)#
+N=20000#
+df<-data.frame(df.1=df.1[isec.genes,])#
+rownames(df)<-isec.genes#
+df<-cbind(df, df.2=df.2[isec.genes,])#
+df.tmp.1<-data.frame(SYMBOL=set.1.excl, df.1=rep(0,n-x), df.2=rep(0,n-x))#
+df.tmp.2<-data.frame(SYMBOL=set.2.excl, df.1=rep(0,M-x), df.2=rep(0,M-x))#
+rownames(df.tmp.1)<-df.tmp.1$SYMBOL#
+df.tmp.1[,1]<-NULL#
+rownames(df.tmp.2)<- df.tmp.2$SYMBOL#
+df.tmp.2[,1]<-NULL#
+SECRET.df<-rbind(df, df.tmp.1,df.tmp.2)#
+order.1<-order(SECRET.df[,1], decreasing=TRUE)#
+tmp<-data.frame(SECRET.df[order.1,])#
+tmp[is.na(tmp)] <- 0#
+data.frame(SECRET.df[order.1,])#
+}
+SECRET.df<-generateSECRET(MG.CTRL.01, MG.CTRL.02)
+head(SECRET.df)
+ccf.02<-crossCorr(SECRET.df, plot=FALSE)
+ccf.02
+sig<-calcSignificanceLevel(SECRET.df)
+sig
+is_CCFSignificant(ccf.02, sig)
+pval<-calcCCF_Pvalue(ccf.02)
+pval
+ccf.df <- with(ccf.02, data.frame(lag, acf))
+plotCorrFunc(ccf.df, pval)
+plotCorrFunc(ccf.df, pval)
+title=paste("MG_CTRL_01* MG_CTRL_01 (p-value=", format(pval, digits=4), ")")#
+ggplot(data=ccf.df, mapping=aes(x=lag, y=acf), main="Test") + geom_bar(stat = "identity", position = "identity") + geom_hline(yintercept=sig, linetype="dashed", color = "red") + labs(title=title) + labs(x="Tau", y="CCF (g)")
+title=paste("MG_CTRL_01* MG_CTRL_01 (p-value=", format(pval, digits=4), ")")#
+ggplot(data=ccf.df, mapping=aes(x=lag, y=acf), main="Test") + geom_bar(stat = "identity", position = "identity","#DCBA30") + geom_hline(yintercept=sig, linetype="dashed", color = "red") + labs(title=title) + labs(x="Tau", y="CCF (g)")
+plotCorrFunc<-function(ccf, title){#
+ccf.df <- with(ccf, data.frame(lag, acf))#
+ggplot(data=ccf.df, mapping=aes(x=lag, y=acf), main="Test") + geom_bar(stat = "identity", position = "identity", fill= "#DCBA30", colour="black") + geom_hline(yintercept=sig, linetype="solid", size=1.5, color = "red") + labs(title=title) + labs(x="Tau", y="CCF (g)")#
+}
+title=paste("CCF of MG_CTRL_01 * MG_CTRL_02 (p-value=", format(pval, digits=4), ")")#
+plotCorrFunc(ccf.df.02)
+plotCorrFunc(ccf.02)
+plotCorrFunc(ccf.02,title)
+length(1/10)
+1/10
+sqrt(200)
+1/(sqrt(200))
+ccf.03
+ccf.02
+df=ccf.03#
+2 * (1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =     1/sqrt(length(df))))
+ccf.df
+df=ccf.df#
+2 * (1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =     1/sqrt(length(df))))
+length(df)
+nrow(df)
+df=ccf.df#
+2 * (1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =     1/sqrt(nrow(df))))
+head(df)
+pnorm(abs(sort(df$acf,decreasing=TRUE)[1])
+)
+1-pnorm(abs(sort(df$acf,decreasing=TRUE)[1]))
+df=ccf.df#
+2 * (1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =  1/sqrt(nrow(df))))
+(1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =  1/sqrt(nrow(df))))
+abs(sort(df$acf,decreasing=TRUE)[1])
+pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =  1/sqrt(nrow(df)))
+plot(pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =  1/sqrt(nrow(df))))
+abs(sort(df$acf,decreasing=TRUE)[1])
+pval
+pval<-calcCCF_Pvalue(ccf.df.02)
+pval<-calcCCF_Pvalue(df)
+pval
+calcCCF_Pvalue<-function(df) {#
+if (sum(df$acf)==0){#
+    1/sqrt(length(df))#
+}#
+else {#
+df=ccf.df#
+2 * (1 - pnorm(abs(sort(df$acf,decreasing=TRUE)[1]), mean = 0, sd =  1/sqrt(nrow(df))))#
+}}
+ccf.02<-crossCorr(SECRET.df, plot=FALSE)
+ccf.02
+pval<-calcCCF_Pvalue(ccf.02)
+pval
+title=paste("CCF of MG_CTRL_01 * MG_CTRL_02 (p-value=", format(pval, digits=4), ")")#
+plotCorrFunc(ccf.02, title)
+pval
+plotCorrFunc(ccf.02, title)
+SECRET.df<-generateSECRET(MG.CTRL.01, M1.SECRET.01)
+SECRET.df<-generateSECRET(MG.CTRL.01, M1.SECRET)
+head(SECRET.df)
+head(SECRET.df),20
+head(SECRET.df,20)
+ccf.04<-crossCorr(SECRET.df, plot=FALSE)
+ccf.04
+ccf.df <- with(ccf.04, data.frame(lag, acf))
+pval<-calcCCF_Pvalue(ccf.04)
+pval
+plotCorrFunc(ccf.04, title)
+SECRET.df<-generateSECRET(MONO.CTRL.01, M1.SECRET)
+head(SECRET.df,20)
+head(SECRET.df,40)
+ccf.04<-crossCorr(SECRET.df, plot=FALSE)
+ccf.04
+SECRET.df<-generateSECRET(MG.CTRL.01, M1.SECRET)
+head(SECRET.df)
+ccf.02<-crossCorr(SECRET.df, plot=FALSE)
+ccf.02
+sig<-calcSignificanceLevel(SECRET.df)
+sig
+pval<-calcCCF_Pvalue(ccf.df)
+pval
+title=paste("CCF of MG_CTRL_01 * M1_SECRET (p-value=", format(pval, digits=4), ")")#
+plotCorrFunc(ccf.02, title)
+title=paste("CCF of MG_CTRL_01 * M1_SECRET (p-value=", format(pval, digits=4), ")")#
+plotCorrFunc(ccf.02, title)
+ccf.02
+SECRET.df
+hea(SECRET.df,40)
+head(SECRET.df,40)
+head(SECRET.df,20)
+gc()
+ls()
+dim(datExpr.pheno.2)
+mg.df.1<-datExpr.pheno.2#
+select.1<-order(apply(mg.df,1,sd), decreasing=TRUE)[1:N]#
+mg.df.1k<-as.data.frame(mg.df[select.1,])
+head(mg.df.1k)
+mg.df.1k<-as.data.frame(mg.df.1[select.1,])
+head(mg.df.1k)
+pheno.m0=c(1,1,1,1,0,0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,0,1)
+length(pheno.m0)
+pheno.m0=c(1,1,1,1,0,0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,0,1)#
+dat.1k<-rbind(mg.df.1k, y=pheno.m0)
+head(dat.1k)
+dat<-as.data.frame(t(dat.1k))#
+method = 'rf'#
+N=1000
+control.1 <- trainControl(method="repeatedcv", number=10, repeats=5)#
+metric="Accuracy" #
+preprocess=c('center','scale')
+x<-dat[,1:N]#
+y<-dat$y
+model.1 <- train(y=y, x=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.2 <- train(y=y, x=x, method="treebag", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(y=y, dat=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(y=as.factor(y), dat=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(y=as.factor(y), data=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(y=as.factor(y), x=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+head(dat)
+dat.1k<-rbind(mg.df.1k, y=pheno.m0)#
+dat[is.na(dat)] <- 0#
+dat<-as.data.frame(t(dat.1k))#
+method = 'rf'#
+N=1000
+head(dat)
+dim(mg.df.1)
+head(mg.df.1)
+pheno.m0=c(1,1,1,1,0,0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,0,1)#
+dat.1k<-rbind(mg.df.1k, y=pheno.m0)
+head(dat.1k)
+dim(dat.1k)
+N=1000#
+mg.df.1<-datExpr.pheno.2#
+select.1<-order(apply(mg.df,1,sd), decreasing=TRUE)[1:N]#
+mg.df.1k<-as.data.frame(mg.df.1[select.1,])
+dim(mg.df.1k)
+heeead(mg.df.1k)
+head(mg.df.1k)
+head(mg.df.1)
+select.1
+head(as.data.frame(mg.df.1[select.1,]))
+head(mg.df.1[select.1,])
+head(mg.df.1[select.1])
+head(mg.df.1[,select.1])
+head(mg.df.1)
+length(select.1)
+mg.df.1[select.1,]
+dim(mg.df.1k)
+mg.df.1[select.1,1:N]
+mg.df.1[select.1,1:36]
+mg.df.1k<-mg.df.1k[select.1,1:N]
+mg.df.1k<-mg.df.1k[select.1,]
+head(mg.df.1k)
+mg.df.1k<-mg.df.1k[select.1,]
+mg.df.1k
+mg.df.1<-datExpr.pheno.2#
+select.1<-order(apply(mg.df,1,sd), decreasing=TRUE)[1:N]
+head(mg.df.1)
+mg.df.1k<-mg.df.1[select.1,]
+head(mg.df.1k)
+dim(mg.df.1)
+select.1
+order(apply(mg.df,2,sd), decreasing=TRUE)[1:N]
+select.1<-order(apply(mg.df,1,sd), decreasing=TRUE)[1:N]
+max(select.)
+max(select.1)
+dim(mg.df.1)
+select.1<-order(apply(mg.df.1,1,sd), decreasing=TRUE)[1:N]
+max(select.1)
+mg.df.1k<-as.data.frame(mg.df.1[select.1,])
+head(mg.df.1k)
+pheno.m0=c(1,1,1,1,0,0,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0,1,0,1)#
+dat.1k<-rbind(mg.df.1k, y=pheno.m0)
+dim(dat.1k)
+dat<-as.data.frame(t(dat.1k))#
+method = 'rf'#
+N=1000
+model.1 <- train(y=as.factor(y), x=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+dim(dat)
+head(dat)
+model.1 <- train(as.factor(dat$y) ~ ., data = dat, importance = TRUE, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+warnings()
+model.1 <- train(as.factor(dat$y) ~ ., data = dat, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(as.factor(dat$y) ~ ., data = dat[,-1], method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+control.1 <- trainControl(method="repeatedcv", number=10, repeats=5, classProbs = TRUE)
+model.1 <- train(as.factor(dat$y) ~ ., data = dat[,-1], method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(as.factor(y) ~ ., data = dat[,-1], method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(y=y, x=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(as.factor(y) ~ ., data = dat, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+as.factor(y)
+x<-dat[,1:N]#
+y<-as.factor(dat$y)
+model.1 <- train(y ~ ., data = dat, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+y
+model.1 <- train(as.factor(y) ~ ., data = dat, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+pheno.m0=c(1,1,1,1,2,2,2,2,1,1,1,2,2,2,1,1,1,1,1,1,2,2,2,2,2,2,1,1,1,2,2,2,2,1,2,1)
+dat.1k<-rbind(mg.df.1k, y=pheno.m0)#
+dat<-as.data.frame(t(dat.1k))#
+method = 'rf'#
+N=1000
+x<-dat[,1:N]#
+y<-as.factor(dat$y)
+model.1 <- train(y=y, x=x, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+names(dat)
+model.1 <- train(y ~ ., data = dat, method="rf", metric=metric, trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+model.1 <- train(y ~ ., data = dat, method="rf", trControl=control.1, tuneLength=15, importance=T, preProcess=preprocess)
+imp.1<-varImp(model.1, scale=FALSE)
+model.1
+imp.1
+imp.df.1<-as.data.frame(imp.1$importance)
+dim(imp.df.1)
+head(imp.df.1,40)
+select.1<-order(imp.df.1$Overall, decreasing=TRUE)#
+imp.df.1<-imp.df.1[select.1, , drop = FALSE]
+imp.df.1<-imp.df.1[imp.df.1$Overall>0, , drop = FALSE]
+length(imp.df.1)
+dim(imp.df.1)
+head(imp.df.1)
+head(imp.df.1,313)
